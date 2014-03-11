@@ -22,6 +22,8 @@ public class Main extends JavaPlugin {
 	public void TeleportinWorld(Player player, int x, int y, int z){
 		 player.teleport(new Location(player.getWorld(), x, y, z));
 	}
+	
+	//little note it don't work with something like TeleportinWorld(player, -5.2,50,-5.2)
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
 			String label, String[] args){
