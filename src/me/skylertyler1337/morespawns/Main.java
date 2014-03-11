@@ -1,5 +1,48 @@
 package me.skylertyler1337.morespawns;
 
-// will add everything later
- public class Main {
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main extends JavaPlugin {
+	
+	@Override
+	public void onEnable() {
+	System.out.println("[MoreSpawns] is Enabled!");
+	}
+
+	@Override
+	public void onDisable() {
+	System.out.println("[MoreSpawns] is Disabled!");
+	}
+	
+	public void TeleportinWorld(Player player, int x, int y, int z){
+		 player.teleport(new Location(player.getWorld(), x, y, z));
+	}
+	@Override
+	public boolean onCommand(CommandSender sender, Command command,
+			String label, String[] args){
+	    Player player = (Player) sender;
+	  if(label.equalsIgnoreCase("spawn")){
+		  if(!(args.length == 1)){
+			  sender.sendMessage(ChatColor.RED+"/spawn [1,2]");
+		  }
+		  if(args.length ==1){
+			  if(args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("one")){
+				  TeleportinWorld(player, -7, 64, -69);
+				  player.sendMessage(ChatColor.GREEN+"You Teleported to the First Spawn");
+			  }
+			  if(args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("two")){
+				  TeleportinWorld(player, -30, 68, 5);
+				  player.sendMessage(ChatColor.GOLD+"You Teleported to the Second Spawn");
+			  }
+		  }
+	  }
+		return false;
+	   
+	}
 }
+
