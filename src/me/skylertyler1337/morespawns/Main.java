@@ -6,12 +6,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implments Listener{
 	
 	@Override
 	public void onEnable() {
 	System.out.println("[MoreSpawns] is Enabled!");
+	getServer().getPluginManager().registerEvents(this,this);
 	}
 
 	@Override
@@ -46,5 +50,6 @@ public class Main extends JavaPlugin {
 		return false;
 	   
 	}
+	
 }
 
